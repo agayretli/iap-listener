@@ -16,6 +16,7 @@ Then, download the GitHub repo:
 git clone https://github.com/agayretli/iap-listener.git
 
 cd iap-listener
+cp .env.example .env
 npm install
 ```
 
