@@ -8,15 +8,14 @@ const verify = (req: Request, res: Response) => {
     try {
         const { receipt } = req.body;
         // Rate-limit error
-        /* if (!((receipt % 100) % 6)) {
+        if ((receipt % 100) % 6 === 0) {
             if (Math.random() >= 0.5) {
-                // todo
-                return res.status(200).send({
+                return res.status(429).send({
                     message: 'RATE-LIMIT ERROR',
                     status: false,
                 });
             }
-        } */
+        }
         // validate
         if (receipt % 2) {
             const date = moment().add(1, 'M').tz('America/Belize').format('YYYY-MM-DD HH:mm:ss');
